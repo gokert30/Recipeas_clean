@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipeas - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="green-border">
+        <h1>Recipeas</h1>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="profile.html" id="profile-link">Profile</a>
+        <button id="logout" style="display:none;">Logout</button>
+    </nav>
+    <div class="paper-page green-border" id="auth-container">
+        <h2>Login / Sign Up</h2>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+        </div>
+        <div id="auth-error" class="error-message"></div>
+        <div class="button-group">
+            <button id="login-btn">Login</button>
+            <button id="signup-btn">Sign Up</button>
+        </div>
+    </div>
+    <div class="paper-page green-border" id="profile-container" style="display:none;">
+        <h2>Your Profile</h2>
+        <p id="user-email"></p>
+        <h3>Your Recipes</h3>
+        <div id="user-recipes"></div>
+        <div class="recipe-form-section">
+            <h2><i class="fas fa-plus-circle"></i> Create New Recipe</h2>
+            <div class="recipe-form-container">
+                <div class="form-group">
+                    <label for="title">Recipe Title</label>
+                    <input type="text" id="title" placeholder="Enter a catchy title for your recipe">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="">Select a category</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="snacks">Snacks</option>
+                        <option value="drinks">Drinks</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ingredients">Ingredients</label>
+                    <div class="ingredients-input-container">
+                        <textarea id="ingredients" placeholder="Enter ingredients, one per line" required></textarea>
+                        <div class="ingredients-tips">
+                            <h4><i class="fas fa-lightbulb"></i> Tips for Ingredients</h4>
+                            <ul>
+                                <li>List each ingredient on a new line</li>
+                                <li>Include measurements (e.g., 2 cups, 1 tbsp)</li>
+                                <li>Be specific about ingredients (e.g., "fresh basil" instead of just "basil")</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="preparation">Preparation Steps</label>
+                    <div class="preparation-input-container">
+                        <textarea id="preparation" placeholder="Enter preparation steps, one per line" required></textarea>
+                        <div class="preparation-tips">
+                            <h4><i class="fas fa-lightbulb"></i> Tips for Preparation</h4>
+                            <ul>
+                                <li>Number each step</li>
+                                <li>Be specific about techniques</li>
+                                <li>Include timing where relevant</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cooking">Cooking Instructions</label>
+                    <div class="cooking-input-container">
+                        <textarea id="cooking" placeholder="Enter cooking instructions, one per line" required></textarea>
+                        <div class="cooking-tips">
+                            <h4><i class="fas fa-lightbulb"></i> Tips for Cooking</h4>
+                            <ul>
+                                <li>Include temperature settings</li>
+                                <li>Specify cooking times</li>
+                                <li>Describe desired results</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formatting-tools">
+                    <h4><i class="fas fa-magic"></i> Formatting Tools</h4>
+                    <div class="formatting-buttons">
+                        <button onclick="formatText('bold')" title="Bold">
+                            <i class="fas fa-bold"></i>
+                        </button>
+                        <button onclick="formatText('italic')" title="Italic">
+                            <i class="fas fa-italic"></i>
+                        </button>
+                        <button onclick="formatText('list')" title="Bullet List">
+                            <i class="fas fa-list-ul"></i>
+                        </button>
+                        <button onclick="formatText('number')" title="Numbered List">
+                            <i class="fas fa-list-ol"></i>
+                        </button>
+                        <button onclick="formatText('quote')" title="Quote">
+                            <i class="fas fa-quote-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="publish-btn" onclick="uploadRecipe()">
+                    <i class="fas fa-upload"></i> Publish Recipe
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

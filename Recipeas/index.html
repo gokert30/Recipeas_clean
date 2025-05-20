@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipeas - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="green-border">
+        <h1>Recipeas</h1>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="profile.html" id="profile-link">Profile</a>
+        <a href="login.html" id="login-link">Login</a>
+        <button id="logout" style="display:none;">Logout</button>
+    </nav>
+    
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to Recipeas</h1>
+            <p>Discover, share, and create amazing recipes with our community</p>
+            <div class="hero-buttons">
+                <a href="categories.html" class="primary-button">Explore Recipes</a>
+                <a href="profile.html" class="secondary-button">Start Cooking</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="paper-page green-border">
+        <div class="featured-section">
+            <h2><i class="fas fa-star"></i> Featured Recipes</h2>
+            <div id="top-recipes-preview" class="recipe-grid"></div>
+        </div>
+
+        <div class="categories-section">
+            <h2><i class="fas fa-th-large"></i> Popular Categories</h2>
+            <div class="category-grid">
+                <a href="categories.html?category=breakfast" class="category-card">
+                    <i class="fas fa-coffee"></i>
+                    <h3>Breakfast</h3>
+                </a>
+                <a href="categories.html?category=lunch" class="category-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Lunch</h3>
+                </a>
+                <a href="categories.html?category=dinner" class="category-card">
+                    <i class="fas fa-moon"></i>
+                    <h3>Dinner</h3>
+                </a>
+                <a href="categories.html?category=dessert" class="category-card">
+                    <i class="fas fa-ice-cream"></i>
+                    <h3>Dessert</h3>
+                </a>
+                <a href="categories.html?category=snacks" class="category-card">
+                    <i class="fas fa-cookie"></i>
+                    <h3>Snacks</h3>
+                </a>
+                <a href="categories.html?category=drinks" class="category-card">
+                    <i class="fas fa-glass-martini-alt"></i>
+                    <h3>Drinks</h3>
+                </a>
+            </div>
+        </div>
+
+        <div class="community-section">
+            <h2><i class="fas fa-users"></i> Join Our Community</h2>
+            <div class="community-features">
+                <div class="feature">
+                    <i class="fas fa-edit"></i>
+                    <h3>Share Recipes</h3>
+                    <p>Create and share your favorite recipes with the community</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>Save Favorites</h3>
+                    <p>Like and save recipes you want to try later</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-comments"></i>
+                    <h3>Get Feedback</h3>
+                    <p>Receive comments and suggestions from other cooks</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBOnZNQiPn_CLlFLZpN1WcevB39zQu9nJE",
+            authDomain: "recipeas-85128.firebaseapp.com",
+            projectId: "recipeas-85128",
+            storageBucket: "recipeas-85128.firebasestorage.app",
+            messagingSenderId: "857403714173",
+            appId: "1:857403714173:web:362673a6c1e2414f9c1f14",
+            measurementId: "G-63X5X9SL3P"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="app.js" defer></script>
+</body>
+</html>

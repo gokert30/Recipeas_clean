@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipeas - Recipe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="green-border">
+        <h1>Recipeas</h1>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="profile.html" id="profile-link">Profile</a>
+        <button id="logout" style="display:none;">Logout</button>
+    </nav>
+
+    <div class="paper-page green-border">
+        <div class="recipe-container">
+            <div class="recipe-header">
+                <div class="recipe-title-section">
+                    <h2 id="recipe-title"></h2>
+                    <p class="recipe-author">By <span id="recipe-author"></span></p>
+                </div>
+                <div class="recipe-controls">
+                    <div class="region-selector">
+                        <select id="region-select" onchange="changeRegion()">
+                            <option value="original">Original Version</option>
+                            <option value="north-america">North America</option>
+                            <option value="south-america">South America</option>
+                            <option value="europe">Europe</option>
+                            <option value="asia">Asia</option>
+                            <option value="africa">Africa</option>
+                            <option value="oceania">Oceania</option>
+                        </select>
+                    </div>
+                    <button class="localize-btn" onclick="createLocalization()">
+                        <i class="fas fa-globe"></i> Create Local Version
+                    </button>
+                </div>
+            </div>
+
+            <div class="recipe-actions">
+                <button class="like-button" onclick="likeRecipe()">
+                    <i class="far fa-heart"></i>
+                    <span id="recipe-likes">0</span>
+                </button>
+            </div>
+
+            <div class="recipe-content">
+                <div class="recipe-section">
+                    <h3><i class="fas fa-list"></i> Ingredients</h3>
+                    <div id="recipe-ingredients" class="recipe-text"></div>
+                </div>
+
+                <div class="recipe-section">
+                    <h3><i class="fas fa-tasks"></i> Preparation</h3>
+                    <div id="recipe-preparation" class="recipe-text"></div>
+                </div>
+
+                <div class="recipe-section">
+                    <h3><i class="fas fa-utensils"></i> Cooking Instructions</h3>
+                    <div id="recipe-cooking" class="recipe-text"></div>
+                </div>
+
+                <div id="localization-info" class="localization-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Localization Modal -->
+    <div id="localization-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-globe"></i> Create Local Version</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="local-region">Region:</label>
+                    <select id="local-region" required>
+                        <option value="north-america">North America</option>
+                        <option value="south-america">South America</option>
+                        <option value="europe">Europe</option>
+                        <option value="asia">Asia</option>
+                        <option value="africa">Africa</option>
+                        <option value="oceania">Oceania</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="local-title">Local Title:</label>
+                    <input type="text" id="local-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="local-ingredients">Localized Ingredients:</label>
+                    <textarea id="local-ingredients" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="local-preparation">Localized Preparation:</label>
+                    <textarea id="local-preparation" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="local-cooking">Localized Cooking Instructions:</label>
+                    <textarea id="local-cooking" required></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="saveLocalization()" class="primary-button">
+                    <i class="fas fa-save"></i> Save Local Version
+                </button>
+                <button onclick="closeModal()" class="secondary-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
