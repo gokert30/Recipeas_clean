@@ -1,12 +1,12 @@
 // Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBOnZNQiPn_CLlFLZpN1WcevB39zQu9nJE",
-    authDomain: "recipeas-85128.firebaseapp.com",
-    projectId: "recipeas-85128",
-    storageBucket: "recipeas-85128.firebasestorage.app",
-    messagingSenderId: "857403714173",
-    appId: "1:857403714173:web:362673a6c1e2414f9c1f14",
-    measurementId: "G-63X5X9SL3P"
+    apiKey: 
+    authDomain: 
+    projectId: 
+    storageBucket: 
+    messagingSenderId: 
+    appId: 
+    measurementId: 
 };
 
 // Initialize Firebase
